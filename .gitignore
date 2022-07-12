@@ -13,6 +13,9 @@ target/
 .springBeans
 .sts4-cache
 
+### Secrets ###
+src/main/java/com/example/demookx/Secrets.java
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
