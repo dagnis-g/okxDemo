@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Base64;
 
@@ -21,16 +22,14 @@ import java.util.Base64;
 @Slf4j
 public class DemoController {
 
-
     String apiKey = Secrets.API_KEY;
     String secretKey = Secrets.SECRET_KEY;
     String passphrase = Secrets.PASSPRHASE;
 
     @GetMapping("/verify")
     public String verify() throws IOException {
-
-        String instant = Instant.now().toString();
-        final String timestamp = instant.substring(0, instant.length() - 7) + "Z";
+        
+        final String timestamp = String.valueOf(Instant.now().truncatedTo(ChronoUnit.MILLIS));
 
         String uriPath = "/api/v5/account/balance";
 
