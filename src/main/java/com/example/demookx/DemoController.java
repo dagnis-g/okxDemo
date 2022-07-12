@@ -28,7 +28,6 @@ public class DemoController {
         String passphrase = "";
 
         String instant = Instant.now().toString();
-
         final String timestamp = instant.substring(0, instant.length() - 7) + "Z";
 
         String uriPath = "/api/v5/account/balance";
