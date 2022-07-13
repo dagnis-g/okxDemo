@@ -28,7 +28,7 @@ public class DemoController {
 
     @GetMapping("/verify")
     public String verify() throws IOException {
-        
+
         final String timestamp = String.valueOf(Instant.now().truncatedTo(ChronoUnit.MILLIS));
 
         String uriPath = "/api/v5/account/balance";
@@ -40,8 +40,8 @@ public class DemoController {
         log.warn(okAccessSign);
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet request = new HttpGet("https://www.okex.com/" + uriPath);
-
+        HttpGet request = new HttpGet("https://www.okex.com" + uriPath);
+        request.addHeader("accept", "application/json");
         request.addHeader("Content-type", "application/json");
         request.addHeader("OK-ACCESS-KEY", apiKey);
         request.addHeader("OK-ACCESS-SIGN", okAccessSign);
